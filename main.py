@@ -62,6 +62,16 @@ def draw_background(texture_id):
     glTexCoord2f(0, 1)
     glVertex2f(-1, 1)
     glEnd()
+    
+def draw_cubo():
+    glColor3f(1.0, 1.0, 0.0)
+    glBegin(GL_QUADS)  # Comienza a dibujar un cuadrado
+    glVertex2f(-0.5, -0.5)  # Vértice inferior izquierdo
+    glVertex2f(0.5, -0.5)   # Vértice inferior derecho
+    glVertex2f(0.5, 0.5)    # Vértice superior derecho
+    glVertex2f(-0.5, 0.5)   # Vértice superior izquierdo
+    glEnd()  # Termina de dibujar el cuadrado
+
 
 def main():
     # The main function that initializes the Pygame and OpenGL libraries, sets up the display window for OpenGL rendering, and continuously renders the background texture.
@@ -89,6 +99,7 @@ def main():
 
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT)
         draw_background(background_texture)
+        draw_cubo()
         pygame.display.flip()
         pygame.time.wait(10)
 
